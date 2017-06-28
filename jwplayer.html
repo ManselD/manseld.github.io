@@ -1,0 +1,36 @@
+<script src="jwplayer-script.js"></script>
+<script src="jquery-3.2.1.min.js"></script>
+<script src="helpers.js"></script>
+<div id="videoPlayer">Loading player...</div>
+<script>
+$(function() {
+	//Initialise JWPlayer.
+	jwplayer.key = "ABCdeFG123456SeVenABCdeFG123456SeVen==";
+	
+	var url = unescape(get("url"));
+	
+	//jQuery is ready...
+	var player = jwplayer("videoPlayer");
+	player.setup({
+		"aspectratio": "auto",
+		"autostart": true,
+		"controls": false,
+		"displaydescription": false,
+		"displaytitle": true,
+		"file": url,
+		"preload": "auto",
+		"primary": "html5", // Use HTML5 As Primary To Have Native YouTube WebM HTML5 Support, Flash Fallback For Other Content
+		"repeat": false,
+		"loop": false,
+		"stagevideo": false,
+		"stretching": "uniform",
+		"visualplaylist": false, 
+		"width": window.innerWidth,
+		"height": window.innerHeight
+	});
+	
+	player.onReady(function(e) {
+		player.play()
+	});
+});
+</script>
